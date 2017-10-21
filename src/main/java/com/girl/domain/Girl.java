@@ -1,8 +1,9 @@
-package com.girl.entity;
+package com.girl.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 
 /**
  * Created by Administrator on 2017/10/19 0019.
@@ -12,7 +13,8 @@ public class Girl {
     @Id
     @GeneratedValue
     private int id;
-    private String name;
+    private String cupSize;
+    @Min(value = 18, message = "未成年少女进制入内！")
     private int age;
 
     public Girl() {
@@ -26,12 +28,12 @@ public class Girl {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCupSize() {
+        return cupSize;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCupSize(String cupSize) {
+        this.cupSize = cupSize;
     }
 
     public int getAge() {
@@ -40,5 +42,14 @@ public class Girl {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Girl{" +
+                "id=" + id +
+                ", cupSize='" + cupSize + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
